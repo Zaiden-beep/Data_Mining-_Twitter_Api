@@ -1,0 +1,38 @@
+import tweepy
+from tweepy import OAuthHandler
+import numpy np
+import pandas as pd
+
+consumer_key = 'hWbAp36Ljlocg85l2bJJFOSae'
+
+
+
+
+consumer_secret = 'Sl5wIHngxRTS2wfxMO2CO3mCQKa9PJocLdlvPOlpjVOIDFWaoX'
+access_token = '870663008-fTe31tvBvdtaIyQKFTYXG7scrx1GZCGIhamMy2gV'
+access_secret = 'JiQ8VLtp2shLYAgoFaTxBVuPF2caopZRRlIXPOuoPl6yK'
+ 
+auth = OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_secret)
+ 
+# Creating the API object while passing in auth information
+
+api = tweepy.API(auth)
+
+
+
+# the Twitter user who we want to get tweets from
+name = "COVID_19_ZA"
+# Number of tweets to pull
+tweetCount = 10
+
+# Calling the user_timeline function with our parameters
+results = api.user_timeline(id=name, count=tweetCount)
+
+# foreach through all tweets pulled
+for tweet in results:
+   # printing the text stored inside the tweet object
+   
+#prints the date the tweets were created at
+  print ((tweet.user.screen_name), (tweet.text), print (tweet.created_at)) 
+
